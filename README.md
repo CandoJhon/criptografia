@@ -4,7 +4,9 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## 📋 Descripción
+## Link del video explicativo -> : https://youtu.be/eESbm-bW77s
+
+## Descripción
 
 Backend API REST para generar contraseñas seguras utilizando **Cryptographically Secure Pseudo-Random Number Generator (CSPRNG)**. El sistema implementa cálculo de entropía según estándares NIST SP 800-63B y RFC 4086, con validación de fortaleza integrada.
 
@@ -21,7 +23,7 @@ Backend API REST para generar contraseñas seguras utilizando **Cryptographicall
 
 ---
 
-## 🔧 Requisitos previos
+## Requisitos previos
 
 - **Python** 3.11 o superior
 - **pip** (gestor de paquetes)
@@ -40,7 +42,7 @@ python3.11 --version
 
 ---
 
-## 📦 Instalación
+## Instalación
 
 ### 1. Descargar archivos
 
@@ -78,7 +80,7 @@ Deberías ver las 5 librerías listadas.
 
 ---
 
-## 🚀 Ejecutar el servidor
+## Ejecutar el servidor
 
 En la carpeta `backend/`, ejecuta:
 
@@ -99,7 +101,7 @@ La terminal **permanecerá activa**. Para detener, presiona `CTRL + C`.
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### Health Check
 
@@ -165,7 +167,7 @@ Content-Type: application/json
 
 ---
 
-## 🧪 Probar la API
+## Probar la API
 
 ### Opción 1: Swagger UI (Recomendado)
 
@@ -213,7 +215,7 @@ print(response.json())
 
 ---
 
-## 🔐 Seguridad
+## Seguridad
 
 ### Generación criptográfica
 
@@ -258,7 +260,7 @@ Donde:
 
 ---
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 backend/
@@ -299,7 +301,7 @@ backend/
 
 ---
 
-## 📊 Flujo de ejecución
+## Flujo de ejecución
 ```mermaid
     flowchart TD
     INICIO([Inicio: Usuario abre la aplicacion])
@@ -356,7 +358,7 @@ backend/
 
 ---
 
-## 📝 Logging
+## Logging
 
 Los logs se guardan en `backend/logs/password_generator.log`.
 
@@ -381,7 +383,7 @@ Get-Content logs/password_generator.log -Wait
 
 ---
 
-## 🐛 Solución de problemas
+## Solución de problemas
 
 ### Error: ModuleNotFoundError: No module named 'fastapi'
 
@@ -429,7 +431,7 @@ HOST = "0.0.0.0"  # Permite cualquier IP en la red
 
 ---
 
-## 📚 Referencias técnicas
+## Referencias técnicas
 
 - **FastAPI Documentation:** https://fastapi.tiangolo.com/
 - **Pydantic Documentation:** https://docs.pydantic.dev/
@@ -437,20 +439,10 @@ HOST = "0.0.0.0"  # Permite cualquier IP en la red
 - **NIST SP 800-63B (Password Guidelines):** https://pages.nist.gov/800-63-3/sp800-63b.html
 - **Python secrets module:** https://docs.python.org/3/library/secrets.html
 
----
-
-## 🤝 Próximos pasos
-
-- [ ] Implementar Frontend (HTML + CSS + JavaScript)
-- [ ] Integración Frontend-Backend vía API REST
-- [ ] Despliegue en servidor (Render, Railway, Heroku)
-- [ ] Certificado SSL/TLS (Let's Encrypt)
-- [ ] Tests unitarios (pytest)
-- [ ] CI/CD (GitHub Actions)
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 MIT License — Ver LICENSE.txt
 

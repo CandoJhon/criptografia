@@ -203,6 +203,10 @@ class PasswordStrengthValidator:
         """
         Realiza validación completa de una contraseña.
         
+        Calcula la entropía de Shannon en bits.
+        
+        Formula: H = L * log2(N)
+
         Args:
             length: Longitud de la contraseña
             alphabet_size: Tamaño del alfabeto utilizado
