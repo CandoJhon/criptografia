@@ -301,7 +301,7 @@ backend/
 
 ## 📊 Flujo de ejecución
 '''mermaid
-flowchart TD
+    flowchart TD
     INICIO([Inicio: Usuario abre la aplicacion])
     UI["Renderizar interfaz de usuario<br/>- Input de longitud<br/>- Checkboxes de tipos de caracteres<br/>- Botones de generacion y copiar"]
     INPUT["Usuario ingresa parametros<br/>- Longitud deseada<br/>- Tipos de caracteres: mayusculas, minusculas, digitos, simbolos"]
