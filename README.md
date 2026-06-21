@@ -300,7 +300,7 @@ backend/
 ---
 
 ## 📊 Flujo de ejecución
-
+'''mermaid
 flowchart TD
     INICIO([Inicio: Usuario abre la aplicacion])
     UI["Renderizar interfaz de usuario<br/>- Input de longitud<br/>- Checkboxes de tipos de caracteres<br/>- Botones de generacion y copiar"]
@@ -352,7 +352,7 @@ flowchart TD
     REGENERAR -->|No| NO_REGENERAR
     SI_REGENERAR --> HTTPREQ
     NO_REGENERAR --> FIN
-
+'''
 
 ---
 
