@@ -3,8 +3,14 @@
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
+![HTML5](https://img.shields.io/badge/HTML5-E34C26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## Link del video explicativo -> : https://youtu.be/eESbm-bW77s
+## Link video diagramas (caso de uso, arquitectura) -> : https://youtu.be/iqpLPiiygMQ
+## Link del video explicativo backend-> : https://youtu.be/eESbm-bW77s
+## Link del video explicativo frontend final -> : https://youtu.be/2M_n3D7lL0A
 
 ## Descripción
 
@@ -438,6 +444,526 @@ HOST = "0.0.0.0"  # Permite cualquier IP en la red
 - **RFC 4086 (Randomness Requirements):** https://tools.ietf.org/html/rfc4086
 - **NIST SP 800-63B (Password Guidelines):** https://pages.nist.gov/800-63-3/sp800-63b.html
 - **Python secrets module:** https://docs.python.org/3/library/secrets.html
+
+
+## FRONTEND
+
+## Descripción
+ 
+Frontend web moderno y responsivo para el Generador Seguro de Contraseñas. Interfaz intuitiva construida con **HTML5 semántico, CSS3 moderno y JavaScript vanilla**, sin dependencias externas. Se comunica con el Backend mediante **fetch API** (HTTP/REST).
+ 
+### Características principales
+ 
+- ✅ **Interfaz moderna**: Tema oscuro, gradientes, animaciones suaves
+- ✅ **Responsivo**: Desktop, tablet, mobile (100% funcional en todos)
+- ✅ **Medidor de fuerza**: 5 niveles con código de colores dinámico
+- ✅ **Historial persistente**: Últimas 10 contraseñas (localStorage)
+- ✅ **Copia al portapapeles**: Con feedback visual
+- ✅ **Validación en tiempo real**: Previene errores antes de enviar
+- ✅ **Manejo de errores robusto**: Conexión, rate limiting, validación
+- ✅ **Indicador de estado del Backend**: Muestra si está conectado
+- ✅ **Consola de debug**: Logs detallados en F12 → Console
+- ✅ **Accesible**: HTML semántico, contraste WCAG AA
+---
+ 
+## Requisitos previos
+ 
+### Navegador web
+ 
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+**Características requeridas:**
+- fetch API (CORS)
+- localStorage
+- Clipboard API
+- ES2020+ (async/await, arrow functions)
+### Backend
+ 
+El Frontend requiere que el Backend esté ejecutándose en `http://localhost:8000`
+ 
+```bash
+# Verificar Backend activo
+curl http://localhost:8000/health
+```
+ 
+---
+ 
+## Instalación
+ 
+### 1. Descargar archivos
+ 
+Descarga los 3 archivos en una carpeta `frontend/`:
+ 
+```
+frontend/
+├── index.html      # Estructura HTML
+├── styles.css      # Estilos CSS
+└── script.js       # Lógica JavaScript
+```
+ 
+### 2. Opciones de ejecución
+ 
+#### Opción A: Servidor HTTP Python (Recomendado)
+ 
+```bash
+cd frontend/
+python -m http.server 8080
+```
+ 
+Luego abre: `http://localhost:8080`
+ 
+#### Opción B: Live Server (VS Code)
+ 
+```bash
+# Instala extensión "Live Server"
+# Click derecho en index.html → "Open with Live Server"
+```
+ 
+#### Opción C: Arrastra y suelta
+ 
+```bash
+# Arrastra index.html al navegador
+# NOTA: Limitaciones de CORS en file:// protocol
+```
+ 
+---
+ 
+## Uso
+ 
+### Generación de contraseña
+ 
+```
+1. Ajusta los parámetros:
+   • Mueve el slider de longitud (8-128)
+   • Marca/desmarca tipos de caracteres
+   • Marca "Excluir ambiguos" si prefieres
+ 
+2. Click en "Generar Contraseña"
+ 
+3. Verás:
+   • Contraseña generada
+   • Medidor de fuerza (color dinámico)
+   • Entropía en bits
+   • Información completa
+```
+ 
+### Acciones disponibles
+ 
+| Acción | Descripción |
+|---|---|
+| **Generar** | Envía solicitud al Backend, genera nueva contraseña |
+| **Regenerar** | Nueva contraseña con mismos parámetros |
+| **Copiar** | Copia al portapapeles, muestra feedback |
+| **Historial** | Ver últimas 10 contraseñas generadas |
+| **Limpiar** | Borra el historial |
+ 
+---
+ 
+## Interfaz
+ 
+### Componentes principales
+ 
+```
+┌─────────────────────────────────────────┐
+│    Generador Seguro de Contraseñas    │
+│  Genera contraseñas criptográficamente  │
+├─────────────────────────────────────────┤
+│  Longitud: 16        [━━━●━━━━]         │
+│  ☑ Mayúsculas (A-Z)                    │
+│  ☑ Minúsculas (a-z)                    │
+│  ☑ Dígitos (0-9)                       │
+│  ☑ Símbolos (!@#$%)                    │
+│  ☐ Excluir ambiguos                    │
+│                                         │
+│  [  Generar Contraseña  ] [ Regenerar ]│
+├─────────────────────────────────────────┤
+│  Contraseña: [k7$Wm2#qPxR9!nL4vB&t]  │
+│  Fortaleza: Muy fuerte                  │
+│  ████████████████████ 131.1 bits        │
+│                                         │
+│  Longitud: 20  | Alfabeto: 94           │
+├─────────────────────────────────────────┤
+│    Historial                           │
+│  • k7$Wm2#qPxR9!nL4vB&t  (3:45 PM)    │
+│  • aB2!cD3@eF4#gH5$iJ6%  (3:40 PM)    │
+└─────────────────────────────────────────┘
+```
+ 
+### Paleta de colores
+ 
+| Elemento | Color | Hex |
+|---|---|---|
+| Primary | Azul | `#2563eb` |
+| Secondary | Verde | `10b981` |
+| Muy débil | Rojo | `#ef4444` |
+| Débil | Naranja | `#f97316` |
+| Razonable | Amarillo | `#f59e0b` |
+| Fuerte | Lima | `#84cc16` |
+| Muy fuerte | Verde | `#10b981` |
+| Fondo | Gris oscuro | `#0f172a` |
+ 
+---
+ 
+## Conexión con Backend
+ 
+### Arquitectura de comunicación
+ 
+```
+[Frontend] --HTTP/FETCH--> [Backend]
+   |                            |
+   • Envía parámetros JSON     • Valida
+   • Espera respuesta          • Genera (secrets)
+   • Actualiza UI              • Calcula entropía
+                               • Retorna JSON
+```
+ 
+### Contrato de la API
+ 
+**Request:**
+```javascript
+POST http://localhost:8000/api/v1/password
+Content-Type: application/json
+ 
+{
+  "length": 20,
+  "useUppercase": true,
+  "useLowercase": true,
+  "useDigits": true,
+  "useSymbols": true,
+  "excludeAmbiguous": false
+}
+```
+ 
+**Response (200 OK):**
+```json
+{
+  "password": "k7$Wm2#qPxR9!nL4vB&t",
+  "length": 20,
+  "entropyBits": 131.1,
+  "strength": "very_strong",
+  "alphabetSize": 94
+}
+```
+ 
+### Códigos de error
+ 
+| Código | Significado | Acción |
+|---|---|---|
+| 200 | Éxito | Mostrar contraseña |
+| 400 | Parámetros inválidos | Mensaje de error |
+| 429 | Rate limit excedido | "Espera 1 minuto" |
+| 500 | Error servidor | "Intenta de nuevo" |
+ 
+---
+ 
+## Debugging
+ 
+### Abrir consola del navegador
+ 
+```
+Windows/Linux: F12 o Ctrl+Shift+I
+macOS: Cmd+Option+I
+```
+ 
+### Logs esperados
+ 
+Cuando generas una contraseña, deberías ver en Console:
+ 
+```javascript
+✓ DOM cargado
+✓ Aplicación inicializada
+✓ Backend activo
+✓ Enviando al Backend: {length: 20, useUppercase: true, ...}
+✓ Respuesta del Backend: {password: "...", strength: "very_strong", ...}
+✓ Contraseña generada exitosamente
+```
+ 
+### Pestaña Network
+ 
+Para ver peticiones HTTP:
+ 
+```
+1. Abre Console → Network tab
+2. Genera una contraseña
+3. Busca la petición POST a /api/v1/password
+4. Click en ella → Preview/Response
+5. Verifica el JSON de respuesta
+```
+ 
+---
+ 
+## Almacenamiento local
+ 
+### localStorage
+ 
+El Frontend guarda el historial en `localStorage`:
+ 
+**Clave:** `passwordHistory`
+ 
+**Formato:**
+```javascript
+[
+  {
+    "password": "k7$Wm2#qPxR9!nL4vB&t",
+    "strength": "very_strong",
+    "entropyBits": 131.1,
+    "timestamp": "3:45 PM"
+  },
+  ...
+]
+```
+ 
+**Persistencia:** Entre sesiones del navegador
+ 
+**Límite:** Últimas 10 contraseñas
+ 
+**Limpiar:** Click en "Limpiar historial" o `localStorage.removeItem('passwordHistory')` en Console
+ 
+---
+ 
+## Solución de problemas
+ 
+### "Backend desconectado" en interfaz
+ 
+**Causa:** El Backend no está ejecutándose
+ 
+**Solución:**
+```bash
+# Terminal 1 (Backend)
+cd backend/
+python main.py
+ 
+# Terminal 2 (Frontend)
+cd frontend/
+python -m http.server 8080
+```
+ 
+Recarga el navegador (F5).
+ 
+---
+ 
+### Estilos CSS no se cargan
+ 
+**Causa:** `styles.css` no está en la misma carpeta
+ 
+**Solución:** Verifica estructura:
+```
+frontend/
+├── index.html
+├── styles.css     ← Debe estar aquí
+└── script.js
+```
+ 
+---
+ 
+### "CORS error" en consola
+ 
+**Causa:** Backend no tiene CORS configurado para este origen
+ 
+**Solución:** En `backend/config.py`, verifica:
+```python
+CORS_ORIGINS = [
+    "http://localhost:8080",  # Tu puerto Frontend
+    ...
+]
+```
+ 
+Reinicia el Backend.
+ 
+---
+ 
+### Historial no se guarda
+ 
+**Causa:** `localStorage` deshabilitado o modo privado
+ 
+**Verificación:**
+```javascript
+// En Console
+localStorage.setItem('test', 'value');
+localStorage.getItem('test');  // Debe mostrar 'value'
+```
+ 
+---
+ 
+### Rate limit (429 Too Many Requests)
+ 
+**Causa:** Más de 30 solicitudes/minuto desde tu IP
+ 
+**Solución:** Espera 1 minuto e intenta de nuevo
+ 
+---
+ 
+## Estructura del código
+ 
+### index.html (150 líneas)
+ 
+```
+DOCTYPE html
+└── <head>
+    ├── Meta tags
+    ├── Título
+    └── Link styles.css
+└── <body>
+    ├── <header> Logo y título
+    ├── <main> Controles y resultado
+    │   ├── controls-panel
+    │   ├── result-panel
+    │   ├── error-message
+    │   └── history-panel
+    └── <footer> Estado Backend
+    └── Script script.js
+```
+ 
+### styles.css (200 líneas)
+ 
+```
+:root (variables CSS)
+├── Colores (primary, danger, strength-*)
+├── Espaciado (radius, shadow)
+└── Tipografía
+ 
+Body & base
+├── Reset
+├── Fuentes
+└── Colores
+ 
+Layout
+├── Container
+├── Header
+├── Main content
+└── Footer
+ 
+Components
+├── .controls-panel
+├── .slider
+├── .checkbox-*
+├── .btn-*
+├── .result-panel
+├── .password-display
+├── .strength-meter
+├── .history-panel
+└── Error messages
+ 
+Responsive
+└── @media (max-width: 768px, 480px)
+```
+ 
+### script.js (250 líneas)
+ 
+```javascript
+CONFIG
+├── API_URL
+└── BACKEND_HEALTH_URL
+ 
+STATE
+├── appState (password, history, loading, error)
+└── DOM (referencias a elementos)
+ 
+HELPERS
+├── generatePassword()
+├── displayPassword()
+├── copyToClipboard()
+├── addToHistory()
+├── renderHistory()
+└── clearHistory()
+ 
+UI
+├── showError()
+├── hideError()
+├── setLoading()
+└── showSuccessMessage()
+ 
+BACKEND
+├── checkBackendStatus()
+├── setBackendOffline()
+└── Manejo de errores HTTP
+ 
+EVENT LISTENERS
+├── DOMContentLoaded
+├── Slider input
+├── Button clicks
+└── Checkbox changes
+```
+ 
+---
+ 
+## Performance
+ 
+### Optimizaciones
+ 
+✅ CSS variables reutilizables
+✅ Event listeners eficientes
+✅ localStorage (evita repetir requests)
+✅ Async/await (no bloquea UI)
+✅ Minimalista (sin frameworks)
+ 
+---
+ 
+## Seguridad
+ 
+### Frontend
+ 
+✅ No almacena contraseñas en localStorage (solo en historial visual)
+✅ Copia al portapapeles (API nativa)
+✅ No hace log de contraseñas en Console
+✅ CORS respeta origen del Backend
+✅ Validación en tiempo real
+ 
+### Comunicación Backend-Frontend
+ 
+✅ HTTPS recomendado en producción
+✅ Fetch API con headers seguros
+✅ Validación Pydantic en Backend
+✅ Rate limiting 30/min
+ 
+---
+ 
+## Compatibilidad
+ 
+| Navegador | Versión mínima | Estado |
+|---|---|---|
+| Chrome | 90 | ✅ Completo |
+| Firefox | 88 | ✅ Completo |
+| Safari | 14 | ✅ Completo |
+| Edge | 90 | ✅ Completo |
+| IE 11 | — | ❌ No soportado |
+ 
+---
+ 
+## Modificar la configuración
+ 
+### Cambiar puerto del Backend
+ 
+En `script.js`, línea 4:
+ 
+```javascript
+const API_URL = 'http://localhost:8001/api/v1/password';  // Si Backend está en 8001
+```
+ 
+### Cambiar colores del tema
+ 
+En `styles.css`, línea 10:
+ 
+```css
+:root {
+    --primary-color: #TU_COLOR;
+    --secondary-color: #TU_COLOR;
+    ...
+}
+```
+ 
+### Cambiar límite de historial
+ 
+En `script.js`, función `addToHistory()`:
+ 
+```javascript
+if (appState.history.length > 20) {  // En lugar de 10
+    appState.history.pop();
+}
+```
+ 
 
 
 ---

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador Seguro de Contraseñas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Generador Seguro de Contraseñas</h1>
+            <p class="subtitle">Genera contraseñas criptográficamente seguras</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Panel de Controles -->
+            <section class="controls-panel">
+                <div class="control-group">
+                    <label for="length">Longitud: <span id="lengthValue">16</span></label>
+                    <input 
+                        type="range" 
+                        id="length" 
+                        min="8" 
+                        max="128" 
+                        value="16"
+                        class="slider"
+                    >
+                    <div class="length-info">
+                        <span class="min">8</span>
+                        <span class="max">128</span>
+                    </div>
+                </div>
+
+                <!-- Checkboxes de tipos de caracteres -->
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input 
+                            type="checkbox" 
+                            id="useUppercase" 
+                            checked
+                            class="checkbox-input"
+                        >
+                        <span class="checkbox-text">Mayúsculas (A-Z)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input 
+                            type="checkbox" 
+                            id="useLowercase" 
+                            checked
+                            class="checkbox-input"
+                        >
+                        <span class="checkbox-text">Minúsculas (a-z)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input 
+                            type="checkbox" 
+                            id="useDigits" 
+                            checked
+                            class="checkbox-input"
+                        >
+                        <span class="checkbox-text">Dígitos (0-9)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input 
+                            type="checkbox" 
+                            id="useSymbols" 
+                            checked
+                            class="checkbox-input"
+                        >
+                        <span class="checkbox-text">Símbolos (!@#$%...)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input 
+                            type="checkbox" 
+                            id="excludeAmbiguous"
+                            class="checkbox-input"
+                        >
+                        <span class="checkbox-text">Excluir ambiguos (i, l, 1, o, 0)</span>
+                    </label>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="button-group">
+                    <button id="generateBtn" class="btn btn-primary">
+                        <span class="btn-text">Generar Contraseña</span>
+                        <span class="btn-loader" style="display: none;">⟳</span>
+                    </button>
+                    <button id="regenerateBtn" class="btn btn-secondary" disabled>
+                        Regenerar
+                    </button>
+                </div>
+            </section>
+
+            <!-- Panel de Resultado -->
+            <section class="result-panel" style="display: none;">
+                <div class="password-display">
+                    <div class="password-container">
+                        <input 
+                            type="text" 
+                            id="passwordOutput" 
+                            readonly
+                            class="password-input"
+                            placeholder="Tu contraseña aparecerá aquí"
+                        >
+                        <button id="copyBtn" class="btn-copy" title="Copiar al portapapeles">
+                            Copiar
+                        </button>
+                    </div>
+                    <div class="copy-feedback" id="copyFeedback" style="display: none;">
+                        ✓ Copiado al portapapeles
+                    </div>
+                </div>
+
+                <!-- Medidor de Fuerza -->
+                <div class="strength-meter">
+                    <div class="strength-label">
+                        <span>Fortaleza:</span>
+                        <span id="strengthText" class="strength-value">—</span>
+                    </div>
+                    <div class="strength-bar">
+                        <div id="strengthIndicator" class="strength-fill"></div>
+                    </div>
+                    <div class="entropy-info">
+                        <span id="entropyText">Entropía: — bits</span>
+                    </div>
+                </div>
+
+                <!-- Información de la contraseña -->
+                <div class="password-info">
+                    <div class="info-item">
+                        <span class="info-label">Longitud:</span>
+                        <span id="infoLength" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Alfabeto:</span>
+                        <span id="infoAlphabet" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Entropía:</span>
+                        <span id="infoEntropy" class="info-value">—</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mensajes de Error -->
+            <section id="errorMessage" class="error-message" style="display: none;"></section>
+
+            <!-- Historial -->
+            <section class="history-panel" style="display: none;">
+                <h2> Historial de contraseñas</h2>
+                <div id="historyList" class="history-list"></div>
+                <button id="clearHistoryBtn" class="btn btn-secondary">
+                    Limpiar historial
+                </button>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Backend: <span id="backendStatus" class="status-offline">Desconectado</span></p>
+            <p class="footer-note">Las contraseñas se generan de forma segura en el servidor</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
