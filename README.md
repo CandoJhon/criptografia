@@ -12,6 +12,8 @@
 ## Link del video explicativo backend-> : https://youtu.be/eESbm-bW77s
 ## Link del video explicativo frontend final -> : https://youtu.be/2M_n3D7lL0A
 
+Nota:  Los archivos entregables en formato PDF se encuentran en la carpeta llamada PDF al inicio del proyecto
+
 ## Descripción
 
 Backend API REST para generar contraseñas seguras utilizando **Cryptographically Secure Pseudo-Random Number Generator (CSPRNG)**. El sistema implementa cálculo de entropía según estándares NIST SP 800-63B y RFC 4086, con validación de fortaleza integrada.
